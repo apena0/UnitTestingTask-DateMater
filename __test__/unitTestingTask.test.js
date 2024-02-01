@@ -89,6 +89,12 @@ describe('Tests for preloaded tokens ', () => {
       expect(unitTestingTask.lang('uk')).toBe('uk');
       jest.clearAllMocks();
     });
+
+    it('If language is specified and is not equal to default language, should change to current language', () => {
+      unitTestingTask.lang("en");
+      unitTestingTask.lang('uk');
+      expect(unitTestingTask.lang()).toBe('uk');
+    });
   });
 
   describe('Formatting tests', () => {
@@ -105,5 +111,11 @@ describe('Tests for preloaded tokens ', () => {
     it('Should format date with selected formatter ', () => {
       expect(unitTestingTask('ISODate', preloadedDate)).toBe('1995-09-05');
     });
+
+    it('Should return a new date in ISOformat if are more than 2 arguments in the function', () => {
+      const newDate = unitTestingTask('ISODate', new Date())
+      expect(unitTestingTask('ISODate', "YYYY",preloadedDate)).toBe(newDate);
+    });
+
   });
 });
