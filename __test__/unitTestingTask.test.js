@@ -65,7 +65,7 @@ describe('Tests for preloaded tokens ', () => {
       expect(() => unitTestingTask(5, preloadedDate)).toThrow(TypeError);
     });
 
-    it('should throw an error if fomat is not a string', () => {
+    it('should throw an error if argument date is not a valid type of Date', () => {
       expect(() => unitTestingTask('YYYY', true)).toThrow(TypeError);
     });
   });
