@@ -12,7 +12,6 @@ describe('Tests for preloaded tokens ', () => {
     { token: 'DDD', date: preloadedDate, expec: 'Tuesday', desc: 'full name of day'},
     { token: 'DD', date: preloadedDate, expec: 'Tue', desc: 'short name of day'},
     { token: 'D', date: preloadedDate, expec: 'Tu', desc: 'min name of day'},
-    { token: 'D', date: preloadedDate, expec: 'Tu', desc: 'min name of day'},
     { token: 'dd', date: preloadedDate, expec: '05', desc: 'zero-padded number of day in month'},
     { token: 'd', date: preloadedDate, expec: '5', desc: 'number of day in month'},
     { token: 'HH', date: preloadedDate, expec: '03', desc: 'zero-padded hour in 24-hr format'},
@@ -31,7 +30,7 @@ describe('Tests for preloaded tokens ', () => {
     { token: 'a', date: preloadedDate, expec: 'am', desc: 'am' },
     { token: 'A', date: preloadedDatePm, expec: 'PM', desc: 'PM' },
     { token: 'a', date: preloadedDatePm, expec: 'pm', desc: 'pm' },
-  ])('$token should return $desc', ({ token, date, expec, desc }) => {
+  ])('$token should return $desc', ({ token, date, expec }) => {
     expect(unitTestingTask(token, date)).toBe(expec);
   });
 
@@ -82,7 +81,7 @@ describe('Tests for preloaded tokens ', () => {
       expect(unitTestingTask.lang('uk')).toBe('en');
     });
     
-    it('If language is specified, should try to run module and find it', () => {
+    it('If language is specified and module is found, should change default language', () => {
       jest.mock('../lang/uk.js', () => {
         return {};
       });
