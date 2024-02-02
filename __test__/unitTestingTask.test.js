@@ -78,7 +78,7 @@ describe('Tests for preloaded tokens ', () => {
       expect(unitTestingTask.lang()).toBe('en');
     });
 
-    it('If language is specified and module is not find, should return default language ', () => {
+    it('If language is specified and module is not found, should return default language ', () => {
       expect(unitTestingTask.lang('uk')).toBe('en');
     });
     
